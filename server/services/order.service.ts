@@ -125,7 +125,7 @@ export class OrderService {
     }
 
     if (order.order_status === 'Delivered') {
-      throw new AppError('No return or replacement policy.', 400)
+      throw new AppError('Cannot cancel delivered orders. No returns or replacements are accepted.', 400)
     }
 
     if (order.order_status === 'Cancelled') {
