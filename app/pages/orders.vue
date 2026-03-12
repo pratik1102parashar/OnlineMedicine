@@ -1,8 +1,19 @@
 <script setup lang="ts">
 definePageMeta({ middleware: 'auth' })
-const { data } = await useFetch('/api/orders')
+const feedback = ref('')
+const { data, refresh } = await useFetch('/api/orders')
 const orders = computed(() => data.value?.data || [])
 const { formatCurrency } = useCurrency()
+
+async function cancelOrder(orderId: string) {
+  try {
+    await $fetch(`/api/orders/${orderId}/cancel`, { method: 'PATCH' })
+    feedback.value = 'Order cancelled successfully.'
+    await refresh()
+  } catch (error: unknown) {
+    feedback.value = getApiErrorMessage(error, 'Unable to cancel order')
+  }
+}
 </script>
 
 <template>
@@ -16,6 +27,9 @@ const { formatCurrency } = useCurrency()
         <div>
           <h2 class="text-lg font-bold text-slate-900">Order #{{ order.id.slice(0, 8) }}</h2>
           <p class="text-sm text-slate-500">{{ new Date(order.created_at).toLocaleString() }}</p>
+          <p class="mt-2 text-sm text-slate-500">
+            {{ order.shipping_address.address }}, {{ order.shipping_address.city }}, {{ order.shipping_address.state }} - {{ order.shipping_address.pincode }}
+          </p>
         </div>
         <div class="flex flex-wrap gap-2 text-sm font-semibold">
           <span class="rounded-full bg-amber-100 px-3 py-1 text-amber-700">{{ order.payment_method }}</span>
@@ -32,8 +46,20 @@ const { formatCurrency } = useCurrency()
           <span>{{ formatCurrency(item.final_price * item.quantity) }}</span>
         </div>
       </div>
-      <div class="mt-4 text-right text-lg font-black text-slate-900">Total: {{ formatCurrency(order.final_amount) }}</div>
+      <div class="mt-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div v-if="order.order_status === 'Delivered'" class="text-sm font-semibold text-slate-500">No return or replacement policy.</div>
+        <button
+          v-else-if="order.order_status !== 'Cancelled'"
+          class="rounded-xl border border-rose-200 px-4 py-2 text-sm font-semibold text-rose-600 hover:bg-rose-50"
+          @click="cancelOrder(order.id)"
+        >
+          Cancel order
+        </button>
+        <span v-else class="text-sm font-semibold text-slate-500">Order cancelled.</span>
+        <div class="text-right text-lg font-black text-slate-900">Total: {{ formatCurrency(order.final_amount) }}</div>
+      </div>
     </article>
     <div v-if="!orders.length" class="rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-500 shadow-sm">No orders placed yet.</div>
+    <p v-if="feedback" class="text-sm text-emerald-700">{{ feedback }}</p>
   </div>
 </template>

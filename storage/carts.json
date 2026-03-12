@@ -1,19 +1,8 @@
 [
   {
-    "user_id": "user-admin-1",
+    "user_id": "4065f23b-30b6-43c5-bca0-ae64e1a5270d",
     "items": [],
     "coupon_code": null,
-    "updated_at": "2026-03-12T07:21:10.760Z"
-  },
-  {
-    "user_id": "user-customer-1",
-    "items": [
-      {
-        "medicine_id": "med-2",
-        "quantity": 2
-      }
-    ],
-    "coupon_code": "SAVE10",
-    "updated_at": "2026-03-12T07:36:19.092Z"
+    "updated_at": "2026-03-12T07:55:30.614Z"
   }
 ]

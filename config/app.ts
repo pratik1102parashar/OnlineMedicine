@@ -1,5 +1,7 @@
 export const STORAGE_FILES = {
   users: 'users.json',
+  admins: 'admins.json',
+  addresses: 'addresses.json',
   medicines: 'medicines.json',
   carts: 'carts.json',
   orders: 'orders.json',
@@ -8,7 +10,7 @@ export const STORAGE_FILES = {
   otp: 'otp.json'
 } as const
 
-export const ORDER_STATUSES = ['PLACED', 'CONFIRMED', 'SHIPPED', 'DELIVERED', 'CANCELLED'] as const
+export const ORDER_STATUSES = ['Pending', 'Processing', 'In Transition', 'Delivered', 'Cancelled'] as const
 export const PAYMENT_METHODS = ['COD'] as const
 export const PAYMENT_STATUSES = ['PENDING', 'PAID', 'FAILED'] as const
 export const USER_ROLES = ['admin', 'customer'] as const

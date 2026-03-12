@@ -22,7 +22,7 @@ export function setAuthSession(event: H3Event, token: string) {
   setCookie(event, COOKIE_NAME, token, {
     httpOnly: true,
     sameSite: 'lax',
-    secure: false,
+    secure: process.env.NODE_ENV === 'production',
     path: '/',
     maxAge: 60 * 60 * 24 * 7
   })

@@ -4,24 +4,9 @@ import { join } from 'node:path'
 const storageDir = join(process.cwd(), 'storage')
 await mkdir(storageDir, { recursive: true })
 
-const users = [
-  {
-    id: 'user-admin-1',
-    name: 'Admin User',
-    phone: '+919900000001',
-    role: 'admin',
-    created_at: '2026-01-01T00:00:00.000Z',
-    updated_at: '2026-01-01T00:00:00.000Z'
-  },
-  {
-    id: 'user-customer-1',
-    name: 'Demo Customer',
-    phone: '+919900000002',
-    role: 'customer',
-    created_at: '2026-01-01T00:00:00.000Z',
-    updated_at: '2026-01-01T00:00:00.000Z'
-  }
-]
+const users = []
+const admins = []
+const addresses = []
 
 const medicines = [
   {
@@ -158,6 +143,8 @@ const inventory = medicines.map((medicine) => ({
 
 await Promise.all([
   writeFile(join(storageDir, 'users.json'), JSON.stringify(users, null, 2)),
+  writeFile(join(storageDir, 'admins.json'), JSON.stringify(admins, null, 2)),
+  writeFile(join(storageDir, 'addresses.json'), JSON.stringify(addresses, null, 2)),
   writeFile(join(storageDir, 'medicines.json'), JSON.stringify(medicines, null, 2)),
   writeFile(join(storageDir, 'carts.json'), JSON.stringify([], null, 2)),
   writeFile(join(storageDir, 'orders.json'), JSON.stringify([], null, 2)),
@@ -166,4 +153,4 @@ await Promise.all([
   writeFile(join(storageDir, 'otp.json'), JSON.stringify([], null, 2))
 ])
 
-console.log('Storage seeded with demo users, medicines, coupons and inventory.')
+console.log('Storage seeded with medicines, coupons, inventory, and empty account data.')

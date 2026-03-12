@@ -13,7 +13,7 @@ const feedback = ref('')
 
 async function addToCart() {
   if (!auth.isAuthenticated) {
-    await router.push('/auth')
+    await router.push('/login')
     return
   }
 
@@ -31,7 +31,7 @@ async function addToCart() {
 
 <template>
   <article class="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-    <img :src="medicine.image" :alt="medicine.name" class="h-40 w-full rounded-xl border border-slate-100 bg-slate-50 object-cover" />
+    <img :src="medicine.image" :alt="medicine.name" class="h-40 w-full rounded-xl border border-slate-100 bg-slate-50 object-cover" >
     <div class="mt-4 flex flex-1 flex-col gap-2">
       <div class="flex items-center justify-between gap-2">
         <span class="rounded-full bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700">{{ medicine.category }}</span>

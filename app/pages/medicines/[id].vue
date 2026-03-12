@@ -9,7 +9,7 @@ const notice = ref('')
 
 async function addToCart() {
   if (!auth.isAuthenticated) {
-    await navigateTo('/auth')
+    await navigateTo('/login')
     return
   }
 
@@ -26,7 +26,7 @@ async function addToCart() {
   <div v-if="error" class="rounded-2xl bg-white p-8 shadow-sm">Medicine not found.</div>
   <div v-else-if="medicine" class="grid gap-8 lg:grid-cols-[1fr,1.2fr]">
     <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-      <img :src="medicine.image" :alt="medicine.name" class="h-full max-h-[420px] w-full rounded-2xl border border-slate-100 bg-slate-50 object-cover" />
+      <img :src="medicine.image" :alt="medicine.name" class="h-full max-h-[420px] w-full rounded-2xl border border-slate-100 bg-slate-50 object-cover" >
     </div>
     <div class="space-y-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
       <div class="space-y-2">

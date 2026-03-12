@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { STORAGE_FILES } from '../../../config/app'
 import type { Order, OrderStatus } from '../../../types/entities'
+import { normalizeOrderStatus } from '../../utils/profile'
 import { BaseJsonRepository } from './base-json.repository'
 
 class OrdersRepository extends BaseJsonRepository<Order> {
@@ -11,6 +12,26 @@ class OrdersRepository extends BaseJsonRepository<Order> {
   async listByUser(userId: string) {
     const orders = await this.findAll()
     return orders.filter((order) => order.user_id === userId).sort((a, b) => b.created_at.localeCompare(a.created_at))
+  }
+
+  async findAll() {
+    const orders = await super.findAll()
+    return orders.map((order) => ({
+      ...order,
+      order_status: normalizeOrderStatus(order.order_status),
+      shipping_address: order.shipping_address || {
+        address: '',
+        city: '',
+        state: '',
+        pincode: '',
+        phone: ''
+      }
+    }))
+  }
+
+  async findById(id: string) {
+    const orders = await this.findAll()
+    return orders.find((order) => order.id === id) ?? null
   }
 
   async create(payload: Omit<Order, 'id' | 'created_at' | 'updated_at'>) {
