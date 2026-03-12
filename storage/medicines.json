@@ -94,5 +94,21 @@
     "is_active": false,
     "created_at": "2026-01-01T00:00:00.000Z",
     "updated_at": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "name": "Pratik Medicine",
+    "brand": "Parashar",
+    "description": "Discreaption",
+    "price": 1200,
+    "discount_percentage": 50,
+    "category": "Pain",
+    "image": "/images/paracetamol.svg",
+    "stock_quantity": 48,
+    "requires_prescription": false,
+    "is_active": true,
+    "id": "765dd7d6-be93-460b-94e4-4d1455f78e37",
+    "final_price": 600,
+    "created_at": "2026-03-12T07:19:18.179Z",
+    "updated_at": "2026-03-12T07:22:05.134Z"
   }
 ]

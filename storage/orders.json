@@ -19,9 +19,59 @@
     "coupon_code": null,
     "payment_method": "COD",
     "payment_status": "PENDING",
-    "order_status": "CONFIRMED",
+    "order_status": "SHIPPED",
     "id": "a4b39b03-08ec-41fd-9da2-42977e2db76f",
     "created_at": "2026-03-12T07:08:38.805Z",
-    "updated_at": "2026-03-12T07:09:32.607Z"
+    "updated_at": "2026-03-12T07:29:49.463Z"
+  },
+  {
+    "user_id": "user-admin-1",
+    "items": [
+      {
+        "medicine_id": "765dd7d6-be93-460b-94e4-4d1455f78e37",
+        "name": "Pratik Medicine",
+        "quantity": 1,
+        "unit_price": 1200,
+        "discount_percentage": 50,
+        "final_price": 600,
+        "requires_prescription": false
+      }
+    ],
+    "subtotal": 1200,
+    "medicine_discount": 600,
+    "coupon_discount": 60,
+    "final_amount": 540,
+    "coupon_code": "SAVE10",
+    "payment_method": "COD",
+    "payment_status": "PENDING",
+    "order_status": "CONFIRMED",
+    "id": "3480a45d-77da-4d88-b931-700d7f09efb2",
+    "created_at": "2026-03-12T07:21:10.757Z",
+    "updated_at": "2026-03-12T07:29:42.768Z"
+  },
+  {
+    "user_id": "user-customer-1",
+    "items": [
+      {
+        "medicine_id": "765dd7d6-be93-460b-94e4-4d1455f78e37",
+        "name": "Pratik Medicine",
+        "quantity": 1,
+        "unit_price": 1200,
+        "discount_percentage": 50,
+        "final_price": 600,
+        "requires_prescription": false
+      }
+    ],
+    "subtotal": 1200,
+    "medicine_discount": 600,
+    "coupon_discount": 0,
+    "final_amount": 600,
+    "coupon_code": null,
+    "payment_method": "COD",
+    "payment_status": "PENDING",
+    "order_status": "CONFIRMED",
+    "id": "9a14a45d-8224-4a1e-aaf4-2a49d8352b00",
+    "created_at": "2026-03-12T07:22:05.173Z",
+    "updated_at": "2026-03-12T07:29:44.261Z"
   }
 ]

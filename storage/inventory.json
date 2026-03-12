@@ -34,5 +34,11 @@
     "stock_quantity": 0,
     "is_active": false,
     "updated_at": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "medicine_id": "765dd7d6-be93-460b-94e4-4d1455f78e37",
+    "stock_quantity": 48,
+    "is_active": true,
+    "updated_at": "2026-03-12T07:22:05.134Z"
   }
 ]
