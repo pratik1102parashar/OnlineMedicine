@@ -1,0 +1,26 @@
+[
+  {
+    "id": "coupon-1",
+    "code": "SAVE10",
+    "description": "Save 10% on orders above ₹500",
+    "discount_type": "percentage",
+    "discount_value": 10,
+    "min_cart_value": 500,
+    "expires_at": "2027-01-01T00:00:00.000Z",
+    "is_active": true,
+    "created_at": "2026-01-01T00:00:00.000Z",
+    "updated_at": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "coupon-2",
+    "code": "MED100",
+    "description": "Flat ₹100 off above ₹1200",
+    "discount_type": "fixed",
+    "discount_value": 100,
+    "min_cart_value": 1200,
+    "expires_at": "2027-01-01T00:00:00.000Z",
+    "is_active": true,
+    "created_at": "2026-01-01T00:00:00.000Z",
+    "updated_at": "2026-01-01T00:00:00.000Z"
+  }
+]
