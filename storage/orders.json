@@ -1,0 +1,27 @@
+[
+  {
+    "user_id": "user-customer-1",
+    "items": [
+      {
+        "medicine_id": "med-1",
+        "name": "Paracetamol 650",
+        "quantity": 1,
+        "unit_price": 120,
+        "discount_percentage": 10,
+        "final_price": 108,
+        "requires_prescription": false
+      }
+    ],
+    "subtotal": 120,
+    "medicine_discount": 12,
+    "coupon_discount": 0,
+    "final_amount": 108,
+    "coupon_code": null,
+    "payment_method": "COD",
+    "payment_status": "PENDING",
+    "order_status": "CONFIRMED",
+    "id": "a4b39b03-08ec-41fd-9da2-42977e2db76f",
+    "created_at": "2026-03-12T07:08:38.805Z",
+    "updated_at": "2026-03-12T07:09:32.607Z"
+  }
+]

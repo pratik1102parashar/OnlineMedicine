@@ -1,0 +1,70 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OnlineMedicine API",
+    "version": "1.0.0",
+    "description": "Local-first medicine marketplace APIs backed by JSON storage."
+  },
+  "servers": [
+    { "url": "http://localhost:3000" }
+  ],
+  "paths": {
+    "/api/auth/request-otp": {
+      "post": {
+        "summary": "Request an OTP",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "phone": { "type": "string" } }, "required": ["phone"] }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OTP logged locally" } }
+      }
+    },
+    "/api/auth/verify-otp": {
+      "post": {
+        "summary": "Verify OTP and start session",
+        "responses": { "200": { "description": "Authenticated user" } }
+      }
+    },
+    "/api/medicines": {
+      "get": {
+        "summary": "List medicines",
+        "parameters": [
+          { "name": "search", "in": "query", "schema": { "type": "string" } },
+          { "name": "category", "in": "query", "schema": { "type": "string" } },
+          { "name": "brand", "in": "query", "schema": { "type": "string" } },
+          { "name": "page", "in": "query", "schema": { "type": "integer" } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer" } }
+        ],
+        "responses": { "200": { "description": "Paginated catalog" } }
+      }
+    },
+    "/api/cart": {
+      "get": { "summary": "Get current user cart", "responses": { "200": { "description": "Cart and pricing" } } }
+    },
+    "/api/cart/items": {
+      "post": { "summary": "Add/update cart item", "responses": { "200": { "description": "Updated cart" } } }
+    },
+    "/api/cart/apply-coupon": {
+      "post": { "summary": "Apply coupon to cart", "responses": { "200": { "description": "Updated pricing" } } }
+    },
+    "/api/orders": {
+      "get": { "summary": "List current user orders", "responses": { "200": { "description": "Orders list" } } },
+      "post": { "summary": "Place COD order", "responses": { "200": { "description": "Created order" } } }
+    },
+    "/api/admin/medicines": {
+      "get": { "summary": "Admin list medicines", "responses": { "200": { "description": "All medicines" } } },
+      "post": { "summary": "Admin create medicine", "responses": { "200": { "description": "Created medicine" } } }
+    },
+    "/api/admin/coupons": {
+      "get": { "summary": "Admin list coupons", "responses": { "200": { "description": "All coupons" } } },
+      "post": { "summary": "Admin create coupon", "responses": { "200": { "description": "Created coupon" } } }
+    },
+    "/api/admin/analytics": {
+      "get": { "summary": "Admin analytics dashboard data", "responses": { "200": { "description": "Stats and low stock alerts" } } }
+    }
+  }
+}
