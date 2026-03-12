@@ -1,11 +1,13 @@
 import { readBody } from 'h3'
-import { orderService } from '../../services/order.service'
+import { addressesRepository } from '../../repositories/json/addresses.repository'
 import { requireUser } from '../../utils/auth'
 import { withErrorHandling } from '../../utils/route'
 import { placeOrderSchema } from '../../validators/order'
 
+const addressSchema = placeOrderSchema.shape.address
+
 export default defineEventHandler(async (event) => withErrorHandling(event, async () => {
   const user = await requireUser(event)
-  const body = placeOrderSchema.parse(await readBody(event))
-  return { data: await orderService.placeOrder(user, body.payment_method, body.address) }
+  const body = addressSchema.parse(await readBody(event))
+  return { data: await addressesRepository.upsert(user.id, body) }
 }))

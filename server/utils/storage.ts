@@ -8,6 +8,8 @@ export async function ensureStorageFiles() {
   await mkdir(STORAGE_DIR, { recursive: true })
   const defaults: Record<string, unknown> = {
     [STORAGE_FILES.users]: [],
+    [STORAGE_FILES.admins]: [],
+    [STORAGE_FILES.addresses]: [],
     [STORAGE_FILES.medicines]: [],
     [STORAGE_FILES.carts]: [],
     [STORAGE_FILES.orders]: [],

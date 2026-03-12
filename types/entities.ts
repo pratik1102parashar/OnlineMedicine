@@ -2,13 +2,34 @@ export type UserRole = 'admin' | 'customer'
 export type DiscountType = 'percentage' | 'fixed'
 export type PaymentMethod = 'COD'
 export type PaymentStatus = 'PENDING' | 'PAID' | 'FAILED'
-export type OrderStatus = 'PLACED' | 'CONFIRMED' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED'
+export type OrderStatus = 'Pending' | 'Processing' | 'In Transition' | 'Delivered' | 'Cancelled'
+
+export interface AddressInput {
+  address: string
+  city: string
+  state: string
+  pincode: string
+  phone: string
+}
+
+export interface Address extends AddressInput {
+  id: string
+  user_id: string
+  created_at: string
+  updated_at: string
+}
+
+export type OrderAddress = AddressInput
 
 export interface User {
   id: string
   name: string
   phone: string
+  first_name: string
+  last_name: string
+  email: string | null
   role: UserRole
+  profile_completed: boolean
   created_at: string
   updated_at: string
 }
@@ -84,6 +105,7 @@ export interface Order {
   id: string
   user_id: string
   items: OrderItem[]
+  shipping_address: OrderAddress
   subtotal: number
   medicine_discount: number
   coupon_discount: number
@@ -117,4 +139,14 @@ export interface AuthTokenPayload {
   phone: string
   role: UserRole
   name: string
+}
+
+export interface Admin {
+  id: string
+  user_id: string
+  name: string
+  email: string
+  password_hash: string
+  created_at: string
+  updated_at: string
 }

@@ -1,26 +1,14 @@
 [
   {
-    "id": "user-admin-1",
-    "name": "Admin User",
-    "phone": "+919900000001",
-    "role": "admin",
-    "created_at": "2026-01-01T00:00:00.000Z",
-    "updated_at": "2026-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "user-customer-1",
-    "name": "Demo Customer",
-    "phone": "+919900000002",
+    "id": "4065f23b-30b6-43c5-bca0-ae64e1a5270d",
+    "name": "Rahul Sharma",
+    "phone": "+919876543210",
+    "first_name": "Rahul",
+    "last_name": "Sharma",
+    "email": "rahul@example.com",
     "role": "customer",
-    "created_at": "2026-01-01T00:00:00.000Z",
-    "updated_at": "2026-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "257845bf-55aa-452c-9edf-62525371d73c",
-    "name": "Customer 4170",
-    "phone": "+919111994170",
-    "role": "customer",
-    "created_at": "2026-03-12T07:16:09.549Z",
-    "updated_at": "2026-03-12T07:16:09.549Z"
+    "profile_completed": true,
+    "created_at": "2026-03-12T07:53:39.635Z",
+    "updated_at": "2026-03-12T07:53:55.885Z"
   }
 ]

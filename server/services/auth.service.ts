@@ -57,6 +57,17 @@ export class AuthService {
 
     return { user, token }
   }
+
+  async completeProfile(userId: string, payload: { first_name: string; last_name: string; email: string | null }) {
+    const user = await usersRepository.updateProfile(userId, payload)
+
+    if (!user) {
+      throw new AppError('User not found', 404)
+    }
+
+    await logEvent('auth', 'profile_completed', { userId })
+    return user
+  }
 }
 
 export const authService = new AuthService()

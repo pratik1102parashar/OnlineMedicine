@@ -12,18 +12,18 @@ const categories = computed(() => catalog.value?.categories || [])
   <div class="space-y-10">
     <section class="grid gap-6 rounded-3xl bg-slate-900 px-8 py-10 text-white lg:grid-cols-[1.4fr,1fr]">
       <div class="space-y-4">
-        <p class="inline-flex rounded-full bg-emerald-500/20 px-4 py-2 text-sm font-semibold text-emerald-200">Trusted medicine delivery, fully local storage</p>
-        <h1 class="text-4xl font-black tracking-tight lg:text-5xl">Buy prescription and OTC medicines with Amazon-style speed.</h1>
-        <p class="max-w-2xl text-lg text-slate-300">Browse verified medicines, apply discounts, manage inventory, and place COD orders on a locally runnable Nuxt 3 platform built for future enterprise scale.</p>
+        <p class="inline-flex rounded-full bg-emerald-500/20 px-4 py-2 text-sm font-semibold text-emerald-200">Trusted medicine ordering platform</p>
+        <h1 class="text-4xl font-black tracking-tight lg:text-5xl">Order prescription and everyday medicines with confidence.</h1>
+        <p class="max-w-2xl text-lg text-slate-300">Browse verified medicines, manage your cart, save delivery details, and place secure cash-on-delivery orders from a clean pharmacy storefront.</p>
         <div class="flex flex-wrap gap-3">
           <NuxtLink to="/search" class="rounded-xl bg-amber-400 px-5 py-3 font-bold text-slate-900 hover:bg-amber-300">Shop medicines</NuxtLink>
-          <NuxtLink to="/admin" class="rounded-xl border border-white/20 px-5 py-3 font-bold hover:border-emerald-300 hover:text-emerald-300">Admin dashboard</NuxtLink>
+          <NuxtLink to="/orders" class="rounded-xl border border-white/20 px-5 py-3 font-bold hover:border-emerald-300 hover:text-emerald-300">View orders</NuxtLink>
         </div>
       </div>
       <div class="grid gap-4 rounded-3xl bg-white/5 p-6 backdrop-blur">
-        <SummaryStat label="Demo admin login" value="+919900000001" accent="text-emerald-300" />
-        <SummaryStat label="Demo customer login" value="+919900000002" accent="text-amber-300" />
-        <SummaryStat label="Ready to run" value="npm install && npm run dev" accent="text-white" />
+        <SummaryStat label="Secure login" value="OTP based" accent="text-emerald-300" />
+        <SummaryStat label="Orders tracked" value="Real-time status" accent="text-amber-300" />
+        <SummaryStat label="Checkout" value="Address required" accent="text-white" />
       </div>
     </section>
 

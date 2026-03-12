@@ -19,7 +19,9 @@ export const useCartStore = defineStore('cart', {
     async fetchCart() {
       this.pending = true
       try {
-        const response = await $fetch<{ data: CartResponse }>('/api/cart')
+        const response = await $fetch<{ data: CartResponse }>('/api/cart', {
+          headers: import.meta.server ? useRequestHeaders(['cookie']) : undefined
+        })
         this.cart = response.data.cart
         this.pricing = response.data.pricing
       } catch (error: unknown) {
@@ -60,10 +62,10 @@ export const useCartStore = defineStore('cart', {
       this.cart = response.data.cart
       this.pricing = response.data.pricing
     },
-    async checkout() {
+    async checkout(address: { address: string; city: string; state: string; pincode: string; phone: string }) {
       const response = await $fetch('/api/orders', {
         method: 'POST',
-        body: { payment_method: 'COD' }
+        body: { payment_method: 'COD', address }
       })
       await this.fetchCart()
       return response

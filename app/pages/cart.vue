@@ -23,7 +23,7 @@ async function applyCoupon() {
       </div>
       <div v-if="cart.pricing?.items.length" class="space-y-4">
         <article v-for="item in cart.pricing.items" :key="item.medicine_id" class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm md:flex-row md:items-center">
-          <img :src="item.image" :alt="item.name" class="h-24 w-24 rounded-2xl border border-slate-100 bg-slate-50 object-cover" />
+          <img :src="item.image" :alt="item.name" class="h-24 w-24 rounded-2xl border border-slate-100 bg-slate-50 object-cover" >
           <div class="flex-1">
             <h2 class="text-lg font-bold text-slate-900">{{ item.name }}</h2>
             <p class="text-sm text-slate-500">{{ item.brand }} · {{ item.category }}</p>
@@ -46,12 +46,12 @@ async function applyCoupon() {
       <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 class="text-xl font-black text-slate-900">Apply coupon</h2>
         <div class="mt-4 flex gap-2">
-          <input v-model="couponCode" class="w-full rounded-xl border border-slate-200 px-4 py-3" />
+          <input v-model="couponCode" class="w-full rounded-xl border border-slate-200 px-4 py-3" >
           <button class="rounded-xl bg-slate-900 px-4 py-3 font-bold text-white" @click="applyCoupon">Apply</button>
         </div>
         <p class="mt-3 text-xs text-slate-500">Try SAVE10 or MED100</p>
       </div>
-      <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" v-if="cart.pricing">
+      <div v-if="cart.pricing" class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
         <h2 class="text-xl font-black text-slate-900">Order summary</h2>
         <dl class="mt-4 space-y-3 text-sm">
           <div class="flex justify-between"><dt>Subtotal</dt><dd>{{ formatCurrency(cart.pricing.subtotal) }}</dd></div>

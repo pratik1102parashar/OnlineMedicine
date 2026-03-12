@@ -1,0 +1,13 @@
+[
+  {
+    "id": "2192d349-d210-4d69-bb11-4e37ff0069bb",
+    "user_id": "4065f23b-30b6-43c5-bca0-ae64e1a5270d",
+    "created_at": "2026-03-12T07:55:22.262Z",
+    "updated_at": "2026-03-12T07:55:30.610Z",
+    "address": "221 MG Road",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "pincode": "560001",
+    "phone": "9876543210"
+  }
+]
